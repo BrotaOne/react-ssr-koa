@@ -2,10 +2,11 @@
   "name": "react-ssr-app",
   "version": "1.0.0",
   "main": "my-koa-app.js",
-  "type": "module",
   "scripts": {
-    "server": "node my-koa-app.js",
-    "build": "webpack --config webpack.config.js",
+    "server": "nodemon ./server/start-server.js",
+    "build:client": "webpack --config webpack.client.config.js",
+    "build:server": "webpack --config webpack.server.config.js",
+    "build": "pnpm build:client && pnpm build:server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,9 +19,17 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.4",
+    "@babel/preset-react": "^7.22.3",
+    "@babel/preset-typescript": "^7.21.5",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "babel-loader": "^9.1.2",
     "html-webpack-plugin": "^5.5.1",
+    "koa-mount": "^4.0.0",
+    "koa-static": "^5.0.0",
+    "nodemon": "^2.0.22",
     "ts-loader": "^9.4.3",
     "typescript": "^5.0.4",
     "webpack": "^5.84.1",

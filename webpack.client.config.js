@@ -5,16 +5,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     // 从哪里开始编译
-    entry: "./src/index.tsx",
+    entry: "./client/index.jsx",
     // 编译到哪里
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/public',
         filename: "bundle.js"
     },
     // 配置模块规则
     module: {
         rules: [
             {
+                test: /\.(js|jsx)$/,
+                use: "babel-loader",
+                exclude: "/node-modules/" 
+            },{
                 test: /\.tsx?$/,    // .ts或者tsx后缀的文件，就是typescript文件
                 use: "ts-loader",   // 就是上面安装的ts-loader
                 exclude: "/node-modules/" // 排除node-modules目录
