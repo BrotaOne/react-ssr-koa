@@ -4,7 +4,7 @@ const path = require("path");
 module.exports = {
     target: "node",
     // 从哪里开始编译
-    entry: "./server/serverApp",
+    entry: "./server/serverApp.tsx",
     // 编译到哪里
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -31,7 +31,7 @@ module.exports = {
     // 模式
     mode: "development",
     resolve: {
-        extensions: [".ts",".js","jsx","tsx"], // 配置ts文件可以作为模块加载
+        extensions: [".ts",".js",".jsx",".tsx"], // 配置ts文件可以作为模块加载
     },
     devtool: "cheap-module-source-map",
     externals: {

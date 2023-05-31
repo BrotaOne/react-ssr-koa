@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     // 从哪里开始编译
-    entry: "./client/index.jsx",
+    entry: "./client/index.tsx",
     // 编译到哪里
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -32,7 +32,7 @@ module.exports = {
     // 模式
     mode: "development",
     resolve: {
-        extensions: [".ts",".js"], // 配置ts文件可以作为模块加载
+        extensions: [".ts",".js",".tsx",".jsx"], // 配置ts文件可以作为模块加载
     },
     devtool: "cheap-module-source-map",
     // devServer: {
@@ -51,7 +51,7 @@ module.exports = {
     // },
     plugins: [
         new HtmlWebpackPlugin({
-            title: '打工人的一天',
+            title: 'React SSR With Koa',
             template: 'public/index.html'
         })
     ]

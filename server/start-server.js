@@ -5,9 +5,7 @@ const serve = require('koa-static')
 const mount = require('koa-mount')
 const app = new Koa();
 const { renderToString } = require('react-dom/server');
-// import App from './src/index.tsx';
-// const App = require('./src/index');
-// logger
+
 const ServerApp = require('../dist/serverBundle.js').default;
 const serverHtml = renderToString(ServerApp);
 const html = fs.readFileSync(
@@ -36,9 +34,6 @@ app.use(async (ctx, next) => {
 });
 
 app.use(async ctx => {
-  // const html = renderToString(data);
-  //   ctx.body = 'Hello World';
-  console.log(html, html.replace('<!-- app -->', serverHtml));
   ctx.body = html.replace('<!-- app -->', serverHtml);
 });
 
